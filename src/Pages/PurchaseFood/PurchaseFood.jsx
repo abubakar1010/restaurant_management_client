@@ -16,18 +16,22 @@ const PurchaseFood = () => {
     const {
         foodName,
         price,
-        quantity
+        quantity,
+        foodImage,
+        totalPurchase,
+        foodCategory
       } = foodItem;
     //   console.log(foodItem);
-    console.log(quantity);
+    // console.log(quantity);
     
       const handlePurchase = (e) => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
-        const date = form.date.value;
-        const purchaseData = {foodName, price,name, email,quantity,date}
+        const foodCategory = form.foodCategory.value;
+        const date = moment().format('MMMM Do YYYY, h:mm:ss a');
+        const purchaseData = {foodName, price,name, email,quantity,date,totalPurchase, foodImage,foodCategory}
         console.log(purchaseData);
         
         axios.post('http://localhost:5000/purchase', purchaseData)
@@ -66,13 +70,13 @@ const PurchaseFood = () => {
                 </div>
                 <div className=" w-full">
                 <Typography variant="h6" color="blue-gray" className="-mb-3">
-                  Price
+                Food Category
                 </Typography>
                 <Input
                   size="lg"
-                  defaultValue={price}
-                  placeholder="Price"
-                  name="price"
+                  defaultValue={foodCategory}
+                  placeholder="Food Category"
+                  name="foodCategory"
                   type="text"
                   required
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900 w-full mt-8"
@@ -136,13 +140,13 @@ const PurchaseFood = () => {
                 </div>
                 <div className=" w-full">
                 <Typography variant="h6" color="blue-gray" className="-mb-3">
-                  Date
+                  Price
                 </Typography>
                 <Input
                   size="lg"
-                  defaultValue={moment().format('MMMM Do YYYY, h:mm:ss a')}
-                  placeholder="Date"
-                  name="date"
+                  defaultValue={price}
+                  placeholder="Price"
+                  name="price"
                   type="text"
                   required
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900 w-full mt-8"

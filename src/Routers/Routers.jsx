@@ -10,6 +10,7 @@ import Gallery from "../Pages/Gallery/Gallery";
 import AddedFoods from "../Pages/AddedFoods/AddedFoods";
 import UpdateAddedFood from "../Pages/UpdateAddedFood/UpdateAddedFood";
 import AddFoodItem from "../Pages/AddFoodItem/AddFoodItem";
+import Orders from "../Pages/Orders/Orders";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
           element: <AddFoodItem/>
 
         },
+        {
+          path: "/myOrdered",
+          element: <Orders/>
+        }
       ]
     },
   ]);

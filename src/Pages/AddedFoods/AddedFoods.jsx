@@ -26,9 +26,6 @@ const AddedFoods = () => {
   return (
     <>
       <div className=" grid grid-cols-3 justify-center items-center w-full gap-x-7 gap-y-12 container mx-auto">
-        {/* {addedFoodsData.map((food) => (
-            <FoodCard key={food._id} food={food} updateFoods={updateFoods} />
-          ))} */}
         {addedFoodsData.map(
           ({
             _id,
