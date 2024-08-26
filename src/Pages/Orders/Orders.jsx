@@ -23,6 +23,17 @@ const Orders = () => {
   }, [user?.email]);
 
 
+  const handleDeleteItem = (id) => {
+    console.log("deleted");
+    axios.delete(`http://localhost:5000/purchase/delete/${id}`)
+    .then( res => {
+        console.log(res);
+        const updatedItem = ordersData.filter( item => item._id !== id);
+        setOrdersData(updatedItem);
+    })
+    
+  }
+
   //
 
    
@@ -116,7 +127,7 @@ const TABLE_HEAD = ["Foods", "Price", "Email", "Date", ""];
                       </Typography>
                     </td>
                     
-                    <td className={classes}>
+                    <td onClick={ () => handleDeleteItem(_id)} className={classes}>
                       <Tooltip content="Delete Item">
                         <IconButton variant="text">
                         <RiDeleteBin6Fill className=" h-4 w-4 text-red-600"></RiDeleteBin6Fill>
