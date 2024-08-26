@@ -16,7 +16,7 @@ const SearchFood = ({handleSearch}) => {
               containerProps={{
                 className: "min-w-[288px]",
               }}
-              className=" !border-t-blue-gray-300 pl-9 placeholder:text-blue-gray-300 focus:!border-blue-gray-300"
+              className=" !border-t-[#d0a260] text-white pl-9 placeholder:text-[#d0a260] focus:!border-[#d0a260] "
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -43,9 +43,9 @@ const SearchFood = ({handleSearch}) => {
               </svg>
             </div>
           </div>
-          <Button type="submit" size="md" className="rounded-lg ">
+          <button type="submit" size="md" className=" px-7 py-[5px] rounded-sm  font-bold text-white text-xl bg-gradient-to-r from-[#d0a260] to-[#c79c60da]">
             Search
-          </Button>
+          </button>
         </div>
             </form>
         </div>
