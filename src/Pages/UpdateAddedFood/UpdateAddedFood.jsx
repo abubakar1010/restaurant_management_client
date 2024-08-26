@@ -1,6 +1,7 @@
 import { Card, Input, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const UpdateAddedFood = () => {
 
@@ -8,6 +9,9 @@ const UpdateAddedFood = () => {
 
   const { _id,foodName, foodOrigin, madeBy, price, foodCategory, foodImage } =
     foodItem;
+
+    const location = useLocation()
+    const navigate = useNavigate()
 
   const handleUpdateItem = (e) => {
     e.preventDefault();
@@ -33,10 +37,26 @@ const UpdateAddedFood = () => {
 
     axios
       .patch(`http://localhost:5000/update/${_id}`, purchaseData)
-      .then((res) => console.log(res));
-  };
+      .then((res) => {
+        // console.log("res in purchase -->",res)
+        if (res.status === 200) {
+            toast.success("Congratulations! successfully Update Item.");
+            setTimeout(() => {
+                navigate(location?.state? location.state : '/')
+            }, 1100);
+        }
+        })
+        .catch( () => {
+                // console.log("er in purchase -->",error)
+            toast.error(
+                "Oops! Update failed. Please try again."
+            );
+        })
+      
+};
 
   return (
+    <>
     <div>
       <Card color="transparent" shadow={false}>
         <Typography color="gray" className="mt-1 font-normal">
@@ -163,6 +183,9 @@ const UpdateAddedFood = () => {
         </form>
       </Card>
     </div>
+    <ToastContainer autoClose={1000} />
+
+    </>
   );
 };
 
