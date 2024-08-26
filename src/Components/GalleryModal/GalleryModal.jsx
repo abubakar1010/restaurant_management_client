@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from 'prop-types'
 import {
   Input,
   Button,
@@ -11,47 +12,33 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import axios from "axios";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
- 
+import { useNavigate } from "react-router-dom";
 
-const GalleryModal = () => {
+const GalleryModal = ({handleGalleryForm}) => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
+  
 
-    const [open, setOpen] = React.useState(false);
-    const {user} = useContext(AuthContext)
+  const [open, setOpen] = React.useState(false);
 
- 
-    const handleOpen = () => setOpen(!open);
-    const handleGalleryForm = (e) => {
-        e.preventDefault()
-        const form = e.target;
+  const handleOpen = () => setOpen(!open);
 
-        const name = form.name.value;
-        const photoURL = form.photoURL.value;
-        const text = form.text.value;
 
-        const galleryInfo = {
-            name,
-            photoURL,
-            text
-        }
-
-        console.log(galleryInfo);
-        
-        axios.post('http://localhost:5000/gallery',galleryInfo)
-        .then( res => {
-            console.log(res);
-            
-        })
-
-    }
-
-    return (
-        <>
-            <Button onClick={handleOpen} variant="gradient">
-        Add Product
+  return (
+    <>
+      <Button
+        onClick={() => {
+          if (!user?.email) {            
+            return navigate('/login', {state: '/gallery'})
+          }
+          handleOpen();
+        }}
+        className="mt-6 px-7 py-2 rounded-sm font-bold text-white text-xl bg-gradient-to-r from-[#d0a260] to-[#c79c60da]"
+      >
+        Add Item
       </Button>
-      <Dialog size="sm" open={open} handler={handleOpen} className="p-4">
+      <Dialog size="sm" open={open} handler={handleOpen} className=" px-4 py-2">
         <DialogHeader className="relative m-0 block">
           <Typography variant="h4" color="blue-gray">
             Manage Item
@@ -69,82 +56,85 @@ const GalleryModal = () => {
           </IconButton>
         </DialogHeader>
         <form onSubmit={handleGalleryForm} action="">
-        <DialogBody className="space-y-4 pb-6">
-          <div>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="mb-2 text-left font-medium"
-            >
-              Name
-            </Typography>
-            <Input
-              color="gray"
-              readOnly
-              defaultValue={user?.displayName}
-              size="lg"
-              placeholder="eg. White Shoes"
-              name="name"
-              className="placeholder:opacity-100 focus:!border-t-gray-900"
-              containerProps={{
-                className: "!min-w-full",
-              }}
-              labelProps={{
-                className: "hidden",
-              }}
-            />
-          </div>
-          <div>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="mb-2 text-left font-medium"
-            >
-              Phot URL
-            </Typography>
-            <Input
-              color="gray"
-              size="lg"
-              placeholder="eg. White Shoes"
-              name="photoURL"
-              className="placeholder:opacity-100 focus:!border-t-gray-900"
-              containerProps={{
-                className: "!min-w-full",
-              }}
-              labelProps={{
-                className: "hidden",
-              }}
-            />
-          </div>
-          <div>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="mb-2 text-left font-medium"
-            >
-              Description 
-            </Typography>
-            <Textarea
-            name="text"
-              rows={3}
-              placeholder="eg. This is a white shoes with a comfortable sole."
-              className="!w-full !border-[1.5px] !border-blue-gray-200/90 !border-t-blue-gray-200/90 bg-white text-gray-600 ring-4 ring-transparent focus:!border-primary focus:!border-t-blue-gray-900 group-hover:!border-primary"
-              labelProps={{
-                className: "hidden",
-              }}
-            />
-          </div>
-        </DialogBody>
-        <DialogFooter>
-          <Button type="submit" className="ml-auto" onClick={handleOpen}>
-            Add Product
-          </Button>
-        </DialogFooter>
+          <DialogBody className="space-y-4 ">
+            <div>
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 text-left font-medium"
+              >
+                Name
+              </Typography>
+              <Input
+                color="gray"
+                readOnly
+                defaultValue={user?.displayName}
+                size="lg"
+                placeholder="eg. White Shoes"
+                name="name"
+                className="placeholder:opacity-100 focus:!border-t-gray-900"
+                containerProps={{
+                  className: "!min-w-full",
+                }}
+                labelProps={{
+                  className: "hidden",
+                }}
+              />
+            </div>
+            <div>
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 text-left font-medium"
+              >
+                Phot URL
+              </Typography>
+              <Input
+                color="gray"
+                size="lg"
+                placeholder="eg. White Shoes"
+                name="photoURL"
+                className="placeholder:opacity-100 focus:!border-t-gray-900"
+                containerProps={{
+                  className: "!min-w-full",
+                }}
+                labelProps={{
+                  className: "hidden",
+                }}
+              />
+            </div>
+            <div>
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-2 text-left font-medium"
+              >
+                Description
+              </Typography>
+              <Textarea
+                name="text"
+                rows={3}
+                placeholder="eg. This is a white shoes with a comfortable sole."
+                className="!w-full !border-[1.5px] !border-blue-gray-200/90 !border-t-blue-gray-200/90 bg-white text-gray-600 ring-4 ring-transparent focus:!border-primary focus:!border-t-blue-gray-900 group-hover:!border-primary"
+                labelProps={{
+                  className: "hidden",
+                }}
+              />
+            </div>
+          </DialogBody>
+          <DialogFooter>
+            <Button type="submit" className="ml-auto px-7 py-2 rounded-sm font-bold text-white text-xl bg-gradient-to-r from-[#d0a260] to-[#c79c60da]" onClick={handleOpen}>
+              Add Product
+            </Button>
+          </DialogFooter>
         </form>
       </Dialog>
-        </>
-    );
+    </>
+  );
 };
 
-export default GalleryModal;
+GalleryModal.propTypes={
+    handleGalleryForm: PropTypes.func
+}
 
+export default GalleryModal;
