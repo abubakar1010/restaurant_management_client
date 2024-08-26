@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { Button } from "@material-tailwind/react";
 import GalleryModal from "../../Components/GalleryModal/GalleryModal";
 
 
@@ -9,8 +8,6 @@ const Gallery = () => {
     const data = useLoaderData()
     const {user} = useContext(AuthContext)
     console.log(data);
-
-    const handleAddOnGallery = () => {}
     
     return (
         <>
