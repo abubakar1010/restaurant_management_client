@@ -53,7 +53,7 @@ const NavigationBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link className="flex items-center">Gallery</Link>
+        <Link to={"/gallery"} className="flex items-center">Gallery</Link>
       </Typography>
 
       {user?.email ? (

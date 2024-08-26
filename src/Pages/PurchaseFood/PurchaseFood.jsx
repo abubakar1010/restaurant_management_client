@@ -16,9 +16,6 @@ const PurchaseFood = () => {
     const {
         foodName,
         price,
-        shortDescription,
-        foodOrigin,
-        madeBy,
         quantity
       } = foodItem;
     //   console.log(foodItem);
