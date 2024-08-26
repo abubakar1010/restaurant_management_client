@@ -45,7 +45,7 @@ const NavigationBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link className="flex items-center">All Foods</Link>
+        <Link to={"/allFoods"} className="flex items-center">All Foods</Link>
       </Typography>
       <Typography
         as="li"
