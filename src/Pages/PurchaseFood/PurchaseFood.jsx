@@ -5,6 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 
 const PurchaseFood = () => {
@@ -14,6 +15,7 @@ const PurchaseFood = () => {
     const foodItem = useLoaderData()
     // console.log(data);
     const {
+        _id,
         foodName,
         price,
         quantity,
@@ -34,13 +36,26 @@ const PurchaseFood = () => {
         const purchaseData = {foodName, price,name, email,quantity,date,totalPurchase, foodImage,foodCategory}
         console.log(purchaseData);
         
-        axios.post('http://localhost:5000/purchase', purchaseData)
-        .then( res => console.log(res)
-        )
+        axios.post(`http://localhost:5000/purchase/${_id}`, purchaseData)
+        .then( res => {
+            if (res.status === 200) {
+                console.log(res);
+                toast.success("Congratulations! You've successfully purchased item");
+            }
+            // console.log("res in purchase -->",res)
+        })
+        .catch( () => {
+            toast.error(
+                "Oops! Login failed.Wrong email and password. Please check your information and try again."
+              );
+            // console.log("Error in purchase -->",error);
+            
+        })
       }
     
     return (
-        <div>
+        <>
+                <div>
             <Card color="transparent" shadow={false}>
             <Typography color="gray" className="mt-1 font-normal">
               Nice to meet you! Enter your details to register.
@@ -168,6 +183,8 @@ const PurchaseFood = () => {
             </form>
           </Card>
         </div>
+        <ToastContainer autoClose={3000} />
+        </>
     );
 };
 
