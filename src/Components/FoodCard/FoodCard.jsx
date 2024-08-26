@@ -9,7 +9,7 @@ import {
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const FoodCard = ({ food }) => {
+const FoodCard = ({food }) => {
   const {
     foodImage,
     foodName,
@@ -54,7 +54,7 @@ const FoodCard = ({ food }) => {
           </div>
         </CardBody>
         <CardFooter className="pt-0">
-          <Link to={'/foodsDetails'}>
+          <Link to={`/foodsDetails/${foodName}`}>
             <Button
               ripple={false}
               fullWidth={true}
