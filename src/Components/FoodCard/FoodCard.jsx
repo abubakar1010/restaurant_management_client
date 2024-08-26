@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 const FoodCard = ({food }) => {
   const {
+    _id,
     foodImage,
     foodName,
     price,
@@ -54,7 +55,7 @@ const FoodCard = ({food }) => {
           </div>
         </CardBody>
         <CardFooter className="pt-0">
-          <Link to={`/foodsDetails/${foodName}`}>
+          <Link to={`/foodsDetails/${_id}`}>
             <Button
               ripple={false}
               fullWidth={true}

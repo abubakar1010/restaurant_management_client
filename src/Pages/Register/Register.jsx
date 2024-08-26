@@ -83,7 +83,7 @@ const Register = () => {
       <div className="flex h-full w-full gap-24">
         <div>
           <img
-            className="object-cover h-[85%] w-[900px]"
+            className="object-cover h-[64%] w-[900px]"
             src={imgURL || loginImg}
             alt=""
           />

@@ -11,6 +11,7 @@ import {
 const DetailsCard = ({ food }) => {
 
     const {
+        _id,
         foodImage,
         foodName,
         price,
@@ -70,7 +71,7 @@ const DetailsCard = ({ food }) => {
             </div>
             </div>
             <div>
-            <Link to={"/purchase"} className="inline-block">
+            <Link to={`/purchase/${_id}`} className="inline-block">
               <Button variant="text" className="flex gap-2">
                 Add To Cart
                 <svg

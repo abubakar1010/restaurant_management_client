@@ -3,14 +3,14 @@ import DetailsCard from "../../Components/DetailsCard/DetailsCard";
 
 
 const FoodsDetails = () => {
-    const data = useLoaderData()
-    console.log(data);
+    const food = useLoaderData()
+    console.log(food);
     return (
         <>
             <div className=" my-12">
-                {
-                    data.map( food => <DetailsCard key={food._id} food={food} />)
-                }
+                
+                    <DetailsCard food={food} /> 
+                
             </div>
         </>
     );
