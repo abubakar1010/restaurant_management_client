@@ -140,7 +140,7 @@ const PurchaseFood = () => {
                 </Typography>
                 <Input
                   size="lg"
-                  defaultValue={moment().format('MMMM Do YYYY')}
+                  defaultValue={moment().format('MMMM Do YYYY, h:mm:ss a')}
                   placeholder="Date"
                   name="date"
                   type="text"
