@@ -16,24 +16,24 @@ const Gallery = () => {
         <>
         
             < div className="grid grid-cols-1 gap-4 sm:grid-cols-2 my-12 md:grid-cols-3">
-        {data.map(({ foodImage,_id }) => (
+        {data.map(({_id, photoURL, text }) => (
           <div className="relative" key={_id}>
             <img
               className="h-56  w-full max-w-full rounded-lg object-cover object-center"
-              src={foodImage}
+              src={photoURL}
               alt="gallery-photo"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity  flex flex-col justify-center items-center text-white p-4 duration-500 hover:duration-500 ">
         <h3 className="text-xl font-bold">{user?.displayName}</h3>
-        <p className="text-sm">userFeedback</p>
+        <p className="text-sm">{text}</p>
       </div>
           </div>
         ))}
 
+            </div>
         <div className=" my-12 text-center">
             <GalleryModal />
         </div>
-            </div>
         </>
     );
 };

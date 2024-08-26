@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         {
           path: "/gallery",
           element: <Gallery/>,
-          loader: () => fetch(`http://localhost:5000/foods`)
+          loader: () => fetch(`http://localhost:5000/gallery`)
 
         },
       ]
