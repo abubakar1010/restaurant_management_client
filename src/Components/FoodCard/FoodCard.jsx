@@ -21,7 +21,7 @@ const FoodCard = ({food }) => {
   } = food;
   return (
     <>
-      <Card className=" max-h-[550px] w-full">
+      <Card className=" max-h-[550px] w-full bg-[#d1bc9e40] ">
         <CardHeader shadow={false} floated={false} className="">
           <img
             src={foodImage}
@@ -57,9 +57,9 @@ const FoodCard = ({food }) => {
         <CardFooter className="pt-0">
           <Link to={`/foodsDetails/${_id}`}>
             <Button
-              ripple={false}
-              fullWidth={true}
-              className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+              // ripple={false}
+              // fullWidth={true}
+              className="mt-6 px-7 py-2 rounded-sm font-bold text-white text-xl bg-gradient-to-r from-[#e3c397] to-[#c8a87bda] bg-blue-gray-900/10 w-full shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
             >
               DEtails
             </Button>

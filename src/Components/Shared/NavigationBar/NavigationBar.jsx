@@ -72,19 +72,17 @@ const NavigationBar = () => {
               
             })
           }}
-            variant="gradient"
             size="sm"
-            className="hidden lg:inline-block"
+            className="hidden lg:inline-block px-6 py-[10px] rounded-sm  text-white bg-gradient-to-r from-[#d0a260] to-[#c79c60da]"
           >
-            <span>Logout</span>
+            <span>Log out</span>
           </Button>
         </>
       ) : (
         <Link to={"login"}>
           <Button
-            variant="gradient"
             size="sm"
-            className="hidden lg:inline-block"
+            className="hidden lg:inline-block px-6 py-[10px] rounded-sm  text-white bg-gradient-to-r from-[#d0a260] to-[#c79c60da]"
           >
             Log In
           </Button>
@@ -154,9 +152,8 @@ const NavigationBar = () => {
             {user?.email ? (
         <>
           <Button
-            variant="gradient"
             size="sm"
-            className=""
+            className="px-6 py-[10px] rounded-sm  text-white bg-gradient-to-r from-[#d0a260] to-[#c79c60da]"
           >
             <span>Logout</span>
           </Button>
@@ -164,9 +161,8 @@ const NavigationBar = () => {
       ) : (
         <Link to={"login"}>
           <Button
-            variant="gradient"
             size="sm"
-            className=""
+            className="px-6 py-[10px] rounded-sm  text-white bg-gradient-to-r from-[#d0a260] to-[#c79c60da]"
           >
             Log In
           </Button>

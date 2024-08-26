@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardBody,
   Typography,
-  Button,
 } from "@material-tailwind/react";
 
 const DetailsCard = ({ food }) => {
@@ -71,8 +70,8 @@ const DetailsCard = ({ food }) => {
             </div>
             </div>
             <div>
-            <Link to={`/purchase/${_id}`} className="inline-block">
-              <Button variant="text" className="flex gap-2">
+            <Link to={`/purchase/${_id}`} className="inline-block mt-4 ml-7">
+              <button className="flex gap-2 justify-center items-center bg-gradient-to-r from-[#d0a260] to-[#c79c60da] w-full py-3 rounded-lg font-bold text-white text-xl px-4">
                 Add To Cart
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +87,7 @@ const DetailsCard = ({ food }) => {
                     d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                   />
                 </svg>
-              </Button>
+              </button>
             </Link>
             </div>
       </div>

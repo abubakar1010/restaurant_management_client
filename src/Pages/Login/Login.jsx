@@ -10,6 +10,7 @@ import loginImg from '../../assets/login.svg'
 const Login = () => {
   const { login, googleLogin, githubLogin, setUserData, user, setLoading } =
     useContext(AuthContext);
+    
 
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Login = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const location = useLocation();
+  console.log("location state", location);
 
   //console.log(location);
 
@@ -69,7 +71,7 @@ const Login = () => {
         toast.success("Congratulations! You've successfully Logged In.");
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");
-        }, 1200);
+        }, 700);
       })
       .catch(() => {
         toast.error(

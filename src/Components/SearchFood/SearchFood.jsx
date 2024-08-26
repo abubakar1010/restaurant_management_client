@@ -1,4 +1,4 @@
-import { Button, Input,  } from "@material-tailwind/react";
+import { Input,  } from "@material-tailwind/react";
 import PropTypes from 'prop-types'
 
 const SearchFood = ({handleSearch}) => {
