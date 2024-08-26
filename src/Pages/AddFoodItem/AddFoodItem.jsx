@@ -2,10 +2,14 @@ import { Card, Input, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AddFoodItem = () => {
 
     const {user} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
   const handleAddItem = (e) => {
     e.preventDefault();
@@ -37,12 +41,26 @@ const AddFoodItem = () => {
     };
     // console.log(foodInfo);
 
-    axios
-      .post(`http://localhost:5000/foods`, foodInfo)
-      .then((res) => console.log(res));
+    axios.post(`http://localhost:5000/foods`, foodInfo)
+    .then((res) => {
+        // console.log("res in purchase -->",res)
+    if (res.status === 200) {
+        toast.success("Congratulations! Item Added successfully.");
+        setTimeout(() => {
+            navigate(location?.state? location.state : '/')
+        }, 1100);
+    }
+    })
+    .catch( () => {
+            // console.log("er in purchase -->",error)
+        toast.error(
+            "Oops! Add item failed. Please try again."
+        );
+    })
   };
 
     return (
+        <>
         <div>
       <Card color="transparent" shadow={false}>
         <Typography color="gray" className="mt-1 font-normal">
@@ -186,6 +204,9 @@ const AddFoodItem = () => {
         </form>
       </Card>
     </div>
+    <ToastContainer autoClose={2000} />
+
+        </>
     );
 };
 
