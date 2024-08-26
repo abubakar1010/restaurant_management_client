@@ -22,7 +22,7 @@ const NavigationBar = () => {
   }, []);
 
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
 
 
