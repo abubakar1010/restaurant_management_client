@@ -11,11 +11,13 @@ import AddedFoods from "../Pages/AddedFoods/AddedFoods";
 import UpdateAddedFood from "../Pages/UpdateAddedFood/UpdateAddedFood";
 import AddFoodItem from "../Pages/AddFoodItem/AddFoodItem";
 import Orders from "../Pages/Orders/Orders";
+import Error from "../Pages/Error/Error";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
+      errorElement: <Error />,
       children:[
         {
           path: "/",

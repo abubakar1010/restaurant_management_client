@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Profile from "../../Profile/Profile";
+import WebLogo from "../../WebLogo/WebLogo";
 
 const NavigationBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -94,15 +95,17 @@ const NavigationBar = () => {
   return (
     <>
       <div className="">
-        <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
+        <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-none">
           <div className="flex items-center justify-between text-blue-gray-900">
+            <Link>
             <Typography
-              as="a"
-              href="#"
+              as="div"
+              
               className="mr-4 cursor-pointer py-1.5 font-medium"
             >
-              Material Tailwind
+              <WebLogo />
             </Typography>
+            </Link>
             <div className="flex items-center gap-4">
               <div className="mr-4 hidden lg:block">{navList}</div>
 

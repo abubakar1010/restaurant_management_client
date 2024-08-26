@@ -1,9 +1,13 @@
 
 
+
 const Home = () => {
     return (
-        <div className=" my-20">
+        <>
+        <div>
+            
         </div>
+        </>
     );
 };
 
