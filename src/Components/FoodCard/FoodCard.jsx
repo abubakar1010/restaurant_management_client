@@ -21,12 +21,12 @@ const FoodCard = ({food }) => {
   } = food;
   return (
     <>
-      <Card className="max-w-[470px]">
-        <CardHeader shadow={false} floated={false} className="h-96">
+      <Card className=" max-h-[550px] w-full">
+        <CardHeader shadow={false} floated={false} className="">
           <img
             src={foodImage}
             alt="card-image"
-            className="h-full w-full object-cover"
+            className="h-[280px] w-full object-cover"
           />
         </CardHeader>
         <CardBody>
@@ -41,7 +41,7 @@ const FoodCard = ({food }) => {
           <Typography
             variant="small"
             color="gray"
-            className="font-normal opacity-75"
+            className="font-normal opacity-75 shrink-1"
           >
             {shortDescription}
           </Typography>

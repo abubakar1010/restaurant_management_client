@@ -6,7 +6,6 @@ import "./Banner.css";
 import { Autoplay, Pagination } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Typewriter } from "react-simple-typewriter";
-import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
