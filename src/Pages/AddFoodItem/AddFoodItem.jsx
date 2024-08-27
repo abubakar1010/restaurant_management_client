@@ -41,7 +41,7 @@ const AddFoodItem = () => {
     };
     // console.log(foodInfo);
 
-    axios.post(`http://localhost:5000/foods`, foodInfo)
+    axios.post(`https://restaurant-management-server-gray.vercel.app/foods`, foodInfo)
     .then((res) => {
         // console.log("res in purchase -->",res)
     if (res.status === 200) {

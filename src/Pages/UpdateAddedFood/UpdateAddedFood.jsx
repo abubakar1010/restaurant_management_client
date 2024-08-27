@@ -36,7 +36,7 @@ const UpdateAddedFood = () => {
     console.log(purchaseData);
 
     axios
-      .patch(`http://localhost:5000/update/${_id}`, purchaseData)
+      .patch(`https://restaurant-management-server-gray.vercel.app/update/${_id}`, purchaseData)
       .then((res) => {
         // console.log("res in purchase -->",res)
         if (res.status === 200) {

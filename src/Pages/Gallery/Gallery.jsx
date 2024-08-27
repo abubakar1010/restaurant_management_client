@@ -30,7 +30,7 @@ const Gallery = () => {
     
         console.log(galleryInfo);
     
-        axios.post("http://localhost:5000/gallery", galleryInfo)
+        axios.post("https://restaurant-management-server-gray.vercel.app/gallery", galleryInfo)
         .then((res) => {
                 // console.log("res in purchase -->",res)
           if (res.status === 200) {

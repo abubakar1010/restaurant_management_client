@@ -9,7 +9,7 @@ const TopSelling = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:5000/top-selling-foods')
+        axios.get('https://restaurant-management-server-gray.vercel.app/top-selling-foods')
         .then(res => {
             setTopSellingFoods(res.data)
         })

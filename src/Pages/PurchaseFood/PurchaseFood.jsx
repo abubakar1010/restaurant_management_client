@@ -18,7 +18,7 @@ const PurchaseFood = () => {
 
     useEffect( () => {
 
-      axios.get(`http://localhost:5000/food/${id}`)
+      axios.get(`https://restaurant-management-server-gray.vercel.app/food/${id}`)
       .then( res => {
         setFoodItem(res.data)
       })
@@ -53,7 +53,7 @@ const PurchaseFood = () => {
         const purchaseData = {foodName, price,name, email,quantity,date,totalPurchase, foodImage,foodCategory}
         // console.log(purchaseData);
         
-        axios.post(`http://localhost:5000/purchase/${_id}`, purchaseData)
+        axios.post(`https://restaurant-management-server-gray.vercel.app/purchase/${_id}`, purchaseData)
         .then( res => {
             if (res.status === 200) {
                 console.log(res);

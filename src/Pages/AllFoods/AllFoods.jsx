@@ -6,7 +6,7 @@ import SearchFood from "../../Components/SearchFood/SearchFood";
 const AllFoods = () => {
   const [foodsData, setFoodsData] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:5000/foods`).then((res) => {
+    axios.get(`https://restaurant-management-server-gray.vercel.app/foods`).then((res) => {
       console.log(res);
       setFoodsData(res.data);
     });
@@ -18,7 +18,7 @@ const AllFoods = () => {
     e.preventDefault();
     const name = e.target.name.value;
     console.log(name);
-    const url = `http://localhost:5000/foods/${name}`;
+    const url = `https://restaurant-management-server-gray.vercel.app/foods/${name}`;
     axios.get(url).then((res) => setFoodsData(res.data));
   };
 

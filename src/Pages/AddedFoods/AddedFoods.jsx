@@ -11,11 +11,12 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
+
 const AddedFoods = () => {
   const [addedFoodsData, setAddedFoodsData] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    axios.get(`http://localhost:5000/foods/user/${user?.email}`, {withCredentials: true}).then((res) => {
+    axios.get(`https://restaurant-management-server-gray.vercel.app/foods/user/${user?.email}`, {withCredentials: true}).then((res) => {
       console.log(res);
       setAddedFoodsData(res.data);
     });

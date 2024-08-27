@@ -6,7 +6,7 @@ import {
   IconButton,
   Collapse,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Profile from "../../Profile/Profile";
 import WebLogo from "../../WebLogo/WebLogo";
@@ -35,10 +35,17 @@ const NavigationBar = () => {
         variant="small"
         color="blue-gray"
         className="p-1 font-normal"
+        
       >
-        <Link to={"/"} className="flex items-center">
+        <NavLink
+          to={"/"}
+          className={ ({isActive}) => 
+            isActive? "flex items-center border-b py-1 px-4 border-[#c79c60da] shadow-none  hover:duration-300 duration-300 font-medium" : "flex items-center text-[#222121] hover:text-[#c79c60da] hover:border-b hover:border-[#c79c60da] hover:duration-300 duration-300 font-bold"
+            
+          }
+        >
           Home
-        </Link>
+        </NavLink>
       </Typography>
       <Typography
         as="li"
@@ -46,7 +53,15 @@ const NavigationBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link to={"/allFoods"} className="flex items-center">All Foods</Link>
+        <NavLink
+          to={"/allFoods"}
+          className={ ({isActive}) => 
+            isActive? "flex items-center border-b py-1 px-4 border-[#c79c60da] shadow-none  hover:duration-300 duration-300 font-medium" : "flex items-center text-[#222121] hover:text-[#c79c60da] hover:border-b hover:border-[#c79c60da] hover:duration-300 duration-300 font-bold"
+            
+          }
+        >
+          All Foods
+        </NavLink>
       </Typography>
       <Typography
         as="li"
@@ -54,7 +69,15 @@ const NavigationBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link to={"/gallery"} className="flex items-center">Gallery</Link>
+        <NavLink
+          to={"/gallery"}
+          className={ ({isActive}) => 
+            isActive? "flex items-center border-b py-1 px-4 border-[#c79c60da] shadow-none  hover:duration-300 duration-300 font-medium" : "flex items-center text-[#222121] hover:text-[#c79c60da] hover:border-b hover:border-[#c79c60da] hover:duration-300 duration-300 font-bold"
+            
+          }
+        >
+          Gallery
+        </NavLink>
       </Typography>
 
       {user?.email ? (

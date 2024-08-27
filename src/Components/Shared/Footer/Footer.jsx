@@ -1,4 +1,6 @@
 import { Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+import WebLogo from "../../WebLogo/WebLogo";
 const Footer = () => {
 
     const SITEMAP = [
@@ -53,13 +55,16 @@ const Footer = () => {
           ))}
         </div>
         <div className="flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
+          <div className=" flex gap-2 mb-2 md:mb-0 items-center justify-center lg:gap-2">
+          <Link><WebLogo /></Link>
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
+            className="shrink-0 text-center font-normal text-blue-gray-900 mb-0"
           >
-            &copy; {currentYear} <a href="https://material-tailwind.com/">Material Tailwind</a>. All
+            &copy; {currentYear}. All
             Rights Reserved.
           </Typography>
+          </div>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
             <Typography as="a" href="#" className="opacity-80 transition-opacity hover:opacity-100">
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

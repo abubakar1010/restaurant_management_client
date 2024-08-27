@@ -16,7 +16,7 @@ const Orders = () => {
   const [ordersData, setOrdersData] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    axios.get(`http://localhost:5000/purchase/${user?.email}`, {withCredentials: true}).then((res) => {
+    axios.get(`https://restaurant-management-server-gray.vercel.app/purchase/${user?.email}`, {withCredentials: true}).then((res) => {
       console.log(res);
       setOrdersData(res.data);
     });
@@ -24,7 +24,7 @@ const Orders = () => {
 
   const handleDeleteItem = (id) => {
     // console.log("deleted");
-    axios.delete(`http://localhost:5000/purchase/delete/${id}`)
+    axios.delete(`https://restaurant-management-server-gray.vercel.app/purchase/delete/${id}`)
       .then((res) => {
         // console.log("res in purchase -->",res)
         const updatedItem = ordersData.filter((item) => item._id !== id);

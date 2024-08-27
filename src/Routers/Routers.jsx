@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         {
           path: "/foodsDetails/:id",
           element: <FoodsDetails />,
-          loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
+          loader: ({params}) => fetch(`https://restaurant-management-server-gray.vercel.app/food/${params.id}`)
         },
         {
           path: "/purchase/:id",
@@ -50,8 +50,8 @@ const router = createBrowserRouter([
         },
         {
           path: "/gallery",
-          element: <Gallery/>,
-          loader: () => fetch(`http://localhost:5000/gallery`)
+          element: <PrivateRoute><Gallery/></PrivateRoute>,
+          loader: () => fetch(`https://restaurant-management-server-gray.vercel.app/gallery`)
 
         },
         {
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         {
           path: "/updateAddedItem/:id",
           element: <UpdateAddedFood/>,
-          loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
+          loader: ({params}) => fetch(`https://restaurant-management-server-gray.vercel.app/food/${params.id}`)
 
         },
         {
