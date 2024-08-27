@@ -18,7 +18,7 @@ const Login = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const location = useLocation();
-  console.log("location state", location);
+  // console.log("location state", location);
 
   //console.log(location);
 

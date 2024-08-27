@@ -15,7 +15,7 @@ const AddedFoods = () => {
   const [addedFoodsData, setAddedFoodsData] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    axios.get(`http://localhost:5000/foods/user/${user?.email}`).then((res) => {
+    axios.get(`http://localhost:5000/foods/user/${user?.email}`, {withCredentials: true}).then((res) => {
       console.log(res);
       setAddedFoodsData(res.data);
     });

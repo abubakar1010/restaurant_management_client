@@ -14,13 +14,19 @@ const Profile = () => {
   // profile menu component
   const profileMenuItems = <>
   <li>
-    <Button fullWidth variant="text"><Link to={"/addedItem"}>My added food items</Link> </Button>
+    <Link to={"/addedItem"}>
+    <Button fullWidth variant="text">My added food items </Button>
+    </Link>
     </li>
   <li>
-    <Button fullWidth variant="text"><Link to={"/addItem"}>Add a food item</Link> </Button>
+    <Link to={"/addItem"}>
+    <Button fullWidth variant="text">Add a food item </Button>
+    </Link>
     </li>
   <li>
-    <Button fullWidth variant="text"><Link to={"/myOrdered"}>My ordered food items</Link> </Button>
+    <Link to={"/myOrdered"}>
+    <Button fullWidth variant="text">My ordered food items </Button>
+    </Link>
     </li>
   </>
 

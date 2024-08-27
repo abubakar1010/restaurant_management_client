@@ -16,7 +16,7 @@ const Orders = () => {
   const [ordersData, setOrdersData] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    axios.get(`http://localhost:5000/purchase/${user?.email}`).then((res) => {
+    axios.get(`http://localhost:5000/purchase/${user?.email}`, {withCredentials: true}).then((res) => {
       console.log(res);
       setOrdersData(res.data);
     });

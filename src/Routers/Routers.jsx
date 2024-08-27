@@ -14,6 +14,7 @@ import Orders from "../Pages/Orders/Orders";
 import Error from "../Pages/Error/Error";
 import PrivateRoute from "../Private/PrivateRoute";
 
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         {
           path: "/purchase/:id",
           element: <PrivateRoute><PurchaseFood/></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
+          
 
         },
         {

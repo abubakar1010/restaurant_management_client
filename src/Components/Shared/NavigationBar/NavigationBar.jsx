@@ -63,8 +63,8 @@ const NavigationBar = () => {
           <Button
           onClick={ () => {
             logout()
-            .then( res => {
-              console.log(res);
+            .then( () => {
+              // console.log(res);
               
             })
             .catch( error => {

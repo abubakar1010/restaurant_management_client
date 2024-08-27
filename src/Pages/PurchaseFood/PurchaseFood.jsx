@@ -1,8 +1,8 @@
 import { Card, Input, Typography } from "@material-tailwind/react";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import {  useLocation, useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
@@ -12,7 +12,21 @@ const PurchaseFood = () => {
 
     const {user} = useContext(AuthContext)
     // console.log(user);
-    const foodItem = useLoaderData()
+    const {id} = useParams()
+
+    const [foodItem, setFoodItem] = useState([]);
+
+    useEffect( () => {
+
+      axios.get(`http://localhost:5000/food/${id}`)
+      .then( res => {
+        setFoodItem(res.data)
+      })
+      .catch( error => {
+        console.log(error);
+        
+      })
+    },[])
     // console.log(data);
     const {
         _id,
@@ -21,10 +35,13 @@ const PurchaseFood = () => {
         quantity,
         foodImage,
         totalPurchase,
-        foodCategory
+        foodCategory,
+        email
       } = foodItem;
     //   console.log(foodItem);
     // console.log(quantity);
+    const navigate = useNavigate();
+    const location = useLocation()
     
       const handlePurchase = (e) => {
         e.preventDefault()
@@ -34,24 +51,33 @@ const PurchaseFood = () => {
         const foodCategory = form.foodCategory.value;
         const date = moment().format('MMMM Do YYYY, h:mm:ss a');
         const purchaseData = {foodName, price,name, email,quantity,date,totalPurchase, foodImage,foodCategory}
-        console.log(purchaseData);
+        // console.log(purchaseData);
         
         axios.post(`http://localhost:5000/purchase/${_id}`, purchaseData)
         .then( res => {
             if (res.status === 200) {
                 console.log(res);
                 toast.success("Congratulations! You've successfully purchased item");
+                setTimeout(() => {
+                    navigate(location?.state? location.state : '/')
+                    // navigate(0)
+                }, 1100);
             }
             // console.log("res in purchase -->",res)
         })
         .catch( () => {
             toast.error(
-                "Oops! Login failed.Wrong email and password. Please check your information and try again."
+                "Oops! Failed Purchased Item. Please try again."
               );
             // console.log("Error in purchase -->",error);
             
         })
       }
+
+    //   console.log("disabled",user?.email,email);
+    //   if (quantity === 0 || email === user?.email) {
+        
+    //   }
     
     return (
         <>
@@ -175,15 +201,17 @@ const PurchaseFood = () => {
               <div className=" mt-12">
               <button
                 type="submit"
-                className="mt-6 bg-gradient-to-r from-[#d0a260] to-[#c79c60da]  w-full py-3 rounded-lg font-bold text-white  text-xl"
+                className={`mt-6 bg-gradient-to-r  from-[#d0a260] to-[#c79c60da] disabled:opacity-40  w-full py-3 rounded-lg font-bold text-white  text-xl`}
+                disabled={quantity === 0 || email === user?.email ? true : false}
               >
                 Purchase
               </button>
+              <p className=" text-center mt-3 text-red-600">{quantity === 0 && 'This item is not available for purchase as it is out of stock' || email === user?.email && "You cannot purchase an item that you have added yourself."}</p>
               </div>
             </form>
           </Card>
         </div>
-        <ToastContainer autoClose={3000} />
+        <ToastContainer autoClose={1000} />
         </>
     );
 };
