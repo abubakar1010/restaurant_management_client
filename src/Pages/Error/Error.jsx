@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 
 const Error = () => {
     return (
         <>
+         <Helmet>
+        <title>Cooking | Error</title>
+      </Helmet>
         <div className=" bg-[url('https://i.postimg.cc/kMfg17Jj/21586054-Na-Nov-26.jpg')] w-full h-screen bg-cover bg-center bg-no-repeat relative ">
             
                 <div className=" w-full text-center pb-12 flex justify-center items-end h-full">

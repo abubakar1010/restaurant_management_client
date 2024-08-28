@@ -11,6 +11,7 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Orders = () => {
   const [ordersData, setOrdersData] = useState([]);
@@ -45,6 +46,9 @@ const Orders = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Cooking | Orders</title>
+      </Helmet>
       <Card className="h-full w-full">
         <CardBody className="overflow-scroll px-0">
           <table className="w-full min-w-max table-auto text-left">

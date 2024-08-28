@@ -1,5 +1,6 @@
 import { Card, Input, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -57,6 +58,9 @@ const UpdateAddedFood = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Cooking | Update Foods</title>
+      </Helmet>
     <div>
       <Card color="transparent" shadow={false}>
         <Typography color="gray" className="mt-1 font-normal">

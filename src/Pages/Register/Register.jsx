@@ -9,6 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import auth from "../../Firebase/Firebase.config";
 import loginImg from "../../assets/login.svg";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { register, user, setUserData } = useContext(AuthContext);
@@ -80,6 +81,9 @@ const Register = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Cooking | Register</title>
+      </Helmet>
       <div className="flex h-full w-full gap-24">
         <div>
           <img

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AddFoodItem = () => {
 
@@ -61,6 +62,9 @@ const AddFoodItem = () => {
 
     return (
         <>
+        <Helmet>
+        <title>Cooking | Add Foods</title>
+      </Helmet>
         <div>
       <Card color="transparent" shadow={false}>
         <Typography color="gray" className="mt-1 font-normal">

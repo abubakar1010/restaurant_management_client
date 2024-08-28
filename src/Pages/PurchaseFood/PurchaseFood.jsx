@@ -6,6 +6,7 @@ import {  useLocation, useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 
 const PurchaseFood = () => {
@@ -81,6 +82,9 @@ const PurchaseFood = () => {
     
     return (
         <>
+        <Helmet>
+        <title>Cooking | Purchase</title>
+      </Helmet>
                 <div>
             <Card color="transparent" shadow={false}>
             <Typography color="gray" className="mt-1 font-normal">

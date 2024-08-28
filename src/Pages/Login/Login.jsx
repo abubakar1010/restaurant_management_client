@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import loginImg from '../../assets/login.svg'
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { login, googleLogin, githubLogin, setUserData, user, setLoading } =
@@ -83,6 +84,9 @@ const Login = () => {
   // //console.log(isError);
   return (
     <>
+    <Helmet>
+        <title>Cooking | Login</title>
+      </Helmet>
       <div className=" flex h-full w-full gap-24">
         <div>
             <img className="object-cover h-[64%] w-[900px]" src={imgURL || loginImg} alt="" />

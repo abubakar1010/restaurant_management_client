@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const AddedFoods = () => {
@@ -26,6 +27,9 @@ const AddedFoods = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Cooking | Add Foods</title>
+      </Helmet>
       <div className=" grid grid-cols-3 justify-center items-center w-full gap-x-7 gap-y-12 container mx-auto">
         {addedFoodsData.map(
           ({
