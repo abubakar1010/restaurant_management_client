@@ -21,7 +21,7 @@ const TopSelling = () => {
             <h1 className=" text-3xl font-bold">Our Top Selling Foods</h1>
             <p className=" text-lg mt-2">We are delighted to welcome you to our restaurant for an extraordinary culinary experience </p>
         </div>
-        <div className=" grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-12 ">
+        <div className=" grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-12 ">
             {topSellingFoods.map( food => <FoodCard key={food._id}  food={food}/>)}
         </div>
         <div className=" w-full text-center mt-12">

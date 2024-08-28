@@ -39,7 +39,7 @@ const Chef = () => {
     return (
         <>
         <div className=" text-center mb-12 my-28 space-y-6">
-            <h1 className=" text-2xl lg:text-5xl font-bold">Meet Our Culinary Masters</h1>
+            <h1 className=" text-3xl font-bold">Meet Our Culinary Masters</h1>
             <p className=" lg:px-24">we believe that great food starts with great people. Our team of culinary masters is dedicated to crafting unforgettable dining experiences that delight and inspire. Each chef brings a unique blend of skill, passion, and cultural heritage to our kitchen, ensuring that every dish we serve is a masterpiece in its own right.</p>
         </div>
         <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-center items-center gap-12">
